@@ -1,0 +1,17 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+body{
+    background-color: #006666;
+}
+header{
+    color: white;
+}
+div{
+    background-color: #008584;
+    color: white;
+    border-radius: 5%;
+    width: 500px;
+    box-shadow: 3px 3px 3px;
+}
