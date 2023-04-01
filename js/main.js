@@ -10,7 +10,7 @@ $(function(){
         tableData = data;
       });
 
-      if(tableData) {
+      if(tableData.length > 0) {
         var tableHtml = '';
 
         tableData.forEach(element => {
