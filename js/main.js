@@ -1,8 +1,5 @@
 $(function(){
-    fetch('../DataBaseFiles/Items.json')
-        .then(function(response){
-            console.log(response.json());
-        })
+    GetItems();
 
     $("#item-submit-btn").on('click', function(){
         var name = $("#item-name-input").val();
@@ -11,3 +8,19 @@ $(function(){
         console.log("name: ", name, "content: ", content);
     }
 )});
+function GetItems(){
+    var xhr = new XMLHttpRequest();
+
+// open a connection
+xhr.open("GET", "../DataBaseFiles/Items.json", true);
+
+// send the request
+xhr.send();
+
+// handle the response
+xhr.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    console.log(this.responseText);
+  }
+}
+}
