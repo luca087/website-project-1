@@ -2,6 +2,7 @@ $(function(){
     fetch("https://luca087.github.io/website-project-1/DataBaseFiles/Items.json")
         .then(function(response){
             console.log(response.json());
+            console.log(response.arrayBuffer);
         })
 
     $("#item-submit-btn").on('click', function(){
