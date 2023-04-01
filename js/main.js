@@ -12,7 +12,7 @@ function GetItems(){
     var xhr = new XMLHttpRequest();
 
 // open a connection
-xhr.open("GET", "../DataBaseFiles/Items.json", true);
+xhr.open("GET", "https://luca087.github.io/website-project-1/DataBaseFiles/Items.json", true);
 
 // send the request
 xhr.send();
