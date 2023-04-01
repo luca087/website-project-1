@@ -10,6 +10,20 @@ $(function(){
         tableData = data;
       });
 
+      if(tableData) {
+        var tableHtml = '';
+
+        tableData.array.forEach(element => {
+          tableHtml += `<tr>
+          <td>${element.ID}</td>
+          <td>${element.Name}</td>
+          <td>${element.Content}</td>
+          </tr>`;
+        });
+
+        $("#item-table-body").html(tableHtml);
+      }
+
     $("#item-submit-btn").on('click', function(){
         var name = $("#item-name-input").val();
         var content = $("#item-content-input").val();
