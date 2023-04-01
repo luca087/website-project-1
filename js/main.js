@@ -13,14 +13,14 @@ $(function(){
       if(tableData) {
         var tableHtml = '';
 
-        tableData.array.forEach(element => {
+        tableData.forEach(element => {
           tableHtml += `<tr>
           <td>${element.ID}</td>
           <td>${element.Name}</td>
           <td>${element.Content}</td>
           </tr>`;
         });
-
+        console.log(tableHtml);
         $("#item-table-body").append(tableHtml);
       }
 
