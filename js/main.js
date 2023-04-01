@@ -8,7 +8,7 @@ $(function(){
       .then(function (data) {
         console.log(data);
         tableData = data;
-      });
+      }).then(function(){
 
       if(tableData.length > 0) {
         var tableHtml = '';
@@ -23,6 +23,7 @@ $(function(){
         console.log(tableHtml);
         $("#item-table-body").append(tableHtml);
       }
+    });
 
     $("#item-submit-btn").on('click', function(){
         var name = $("#item-name-input").val();
