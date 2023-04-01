@@ -1,14 +1,13 @@
+var tableData;
+
 $(function(){
     fetch("https://luca087.github.io/website-project-1/DataBaseFiles/Items.json")
     .then(function (response) {
         return response.json();
       })
       .then(function (data) {
-        for (let i = 0; i < data.length; i++) {
-          console.log(data[i].name);
-        }
         console.log(data);
-
+        tableData = data;
       });
 
     $("#item-submit-btn").on('click', function(){
