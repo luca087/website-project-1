@@ -21,7 +21,7 @@ $(function(){
           </tr>`;
         });
 
-        $("#item-table-body").html(tableHtml);
+        $("#item-table-body").append(tableHtml);
       }
 
     $("#item-submit-btn").on('click', function(){
