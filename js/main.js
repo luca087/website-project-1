@@ -1,4 +1,4 @@
-var tableData;
+var tableData = [];
 
 $(function(){
     fetch("https://luca087.github.io/website-project-1/DataBaseFiles/Items.json")
@@ -10,7 +10,7 @@ $(function(){
         tableData = data;
       }).then(function(){
 
-      if(tableData.length > 0) {
+      if(tableData.length() > 0) {
         var tableHtml = '';
 
         tableData.forEach(element => {
