@@ -1,5 +1,8 @@
 $(function(){
-    GetItems();
+    fetch("https://luca087.github.io/website-project-1/DataBaseFiles/Items.json")
+        .then(function(response){
+            console.log(response.json());
+        })
 
     $("#item-submit-btn").on('click', function(){
         var name = $("#item-name-input").val();
