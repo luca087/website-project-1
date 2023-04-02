@@ -1,6 +1,5 @@
 
-import { createClient } from '../node_modules/@supabase/supabase-js/dist/module/index';
-
+import { createClient } from '../node_modules/@supabase/supabase-js/dist/module/index.js';
 const supabaseUrl = 'https://xvohwimfsjsqkzwmfxse.supabase.co';
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
