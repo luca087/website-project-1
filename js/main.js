@@ -57,5 +57,8 @@ function Post(id, name, content){
     ID:id,
     Name:name,
     Content:content});
-  $.post("../DataBaseFiles/Items.json", tableData);
+  $.post("../DataBaseFiles/Items.json", tableData)
+  .done(function( data ) {
+    alert( "Data Loaded: " + data );
+  });
 };
