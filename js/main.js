@@ -1,18 +1,18 @@
 var tableData = [];
 
-$(async function(){
+$( function(){
     GetAndSetTable();    
     
-    await PostFormFetch(3,"aaa","bbbbbbbb");
+     PostFormFetch(3,"aaa","bbbbbbbb");
 
-    $("#item-submit-btn").on('click', async function(){
+    $("#item-submit-btn").on('click',  function(){
         var name = $("#item-name-input").val();
         var content = $("#item-content-input").val();
         var form = new FormData($("#item-form"));
 
         console.log("name: ", name, "content: ", content);
         console.log(form);
-        await PostFormFetch(3,"aaa","bbbbbbbb");
+         PostFormFetch(3,"aaa","bbbbbbbb");
         Post(2, name, content);
     }
 )});
@@ -67,15 +67,15 @@ function Post(id, name, content){
     window.alert( "Data Loaded: " + data );
   });
 };
-async function PostFormFetch(id,name,content){
-  let response = await fetch('https://luca087.github.io/website-project-1/DataBaseFiles/Items.json', {
+ function PostFormFetch(id,name,content){
+  let response =  fetch('https://luca087.github.io/website-project-1/DataBaseFiles/Items.json', {
     method: 'POST',
     body: {ID:2,
     Name: "name 2",
   Content: "testing"}
   });
 
-  let result = await response.json();
+  let result =  response.json();
 
   alert(result.message);
 }
