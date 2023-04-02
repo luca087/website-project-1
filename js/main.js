@@ -10,7 +10,7 @@ $(function(){
 
         console.log("name: ", name, "content: ", content);
         console.log(form);
-      PostFormFetch(3,"aaa","bbbbbbbb");
+        await PostFormFetch(3,"aaa","bbbbbbbb");
         Post(2, name, content);
     }
 )});
@@ -65,7 +65,7 @@ function Post(id, name, content){
     window.alert( "Data Loaded: " + data );
   });
 };
-function PostFormFetch(id,name,content){
+async function PostFormFetch(id,name,content){
   FormData($("#item-form"))
   let response = await fetch('https://luca087.github.io/website-project-1/DataBaseFiles/Items.json', {
     method: 'POST',
