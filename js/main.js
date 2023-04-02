@@ -1,7 +1,9 @@
 var tableData = [];
 
-$(function(){
+$(async function(){
     GetAndSetTable();    
+    
+    await PostFormFetch(3,"aaa","bbbbbbbb");
 
     $("#item-submit-btn").on('click', async function(){
         var name = $("#item-name-input").val();
@@ -66,7 +68,6 @@ function Post(id, name, content){
   });
 };
 async function PostFormFetch(id,name,content){
-  FormData($("#item-form"))
   let response = await fetch('https://luca087.github.io/website-project-1/DataBaseFiles/Items.json', {
     method: 'POST',
     body: {ID:2,
