@@ -1,10 +1,15 @@
+
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = 'https://xvohwimfsjsqkzwmfxse.supabase.co';
+const supabaseKey = process.env.SUPABASE_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
 var tableData = [];
 
 $( function(){
     GetAndSetTable();    
     
-    PostAjax();
-
     $("#item-submit-btn").on('click',  function(){
         var name = $("#item-name-input").val();
         var content = $("#item-content-input").val();
@@ -12,27 +17,9 @@ $( function(){
 
         console.log("name: ", name, "content: ", content);
         console.log(form);
-         PostFormFetch(3,"aaa","bbbbbbbb");
-        Post(2, name, content);
     }
 )});
-function GetItems(){
-    var xhr = new XMLHttpRequest();
-
-// open a connection
-xhr.open("GET", "https://luca087.github.io/website-project-1/DataBaseFiles/Items.json", true);
-
-// send the request
-xhr.send();
-
-// handle the response
-xhr.onreadystatechange = function () {
-  if (this.readyState == 4 && this.status == 200) {
-    console.log(this.responseText);
-  }
-}
-}
-function GetAndSetTable(){
+function GetAndSetTableOld(){
   fetch("https://luca087.github.io/website-project-1/DataBaseFiles/Items.json")
     .then(function (response) {
         return response.json();
@@ -57,41 +44,12 @@ function GetAndSetTable(){
       }
     });
 }
-function Post(id, name, content){
-  tableData.push({
-    ID:id,
-    Name:name,
-    Content:content});
-  $.post("../DataBaseFiles/Items.json", tableData)
-  .done(function( data ) {
-    window.alert( "Data Loaded: " + data );
-  });
-};
- function PostFormFetch(id,name,content){
-  let response =  fetch('https://luca087.github.io/website-project-1/DataBaseFiles/Items.json', {
-    method: 'POST',
-    body: {ID:2,
-    Name: "name 2",
-  Content: "testing"}
-  });
 
-  let result =  response;
+function GetAndSetTable(){
+  
+let { data: Items, error } = await supabase
+.from('Items')
+.select('*');
 
-  alert(result.json());
-}
-function PostAjax(){
-  $.ajax({
-    type: "POST",
-    url: "https://luca087.github.io/website-project-1/DataBaseFiles/Items.json",
-    contentType: "application/json",
-    dataType: "json",
-    data: JSON.stringify({
-      "ID":2,
-      "Name": "name 2",
-      "Content": "testing"})
-  })
-    .done(function( data ) {
-      console.log( data );
-      alert(data);
-    });
+console.log(data);
 }
