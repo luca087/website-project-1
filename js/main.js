@@ -5,8 +5,6 @@ $( function(){
     
     PostAjax();
 
-     PostFormFetch(3,"aaa","bbbbbbbb");
-
     $("#item-submit-btn").on('click',  function(){
         var name = $("#item-name-input").val();
         var content = $("#item-content-input").val();
@@ -94,5 +92,6 @@ function PostAjax(){
   })
     .done(function( data ) {
       console.log( data );
+      alert(data);
     });
 }
