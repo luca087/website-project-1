@@ -3,6 +3,8 @@ var tableData = [];
 $( function(){
     GetAndSetTable();    
     
+    PostAjax();
+
      PostFormFetch(3,"aaa","bbbbbbbb");
 
     $("#item-submit-btn").on('click',  function(){
