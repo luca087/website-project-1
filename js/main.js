@@ -3,7 +3,7 @@ var tableData = [];
 $(function(){
     GetAndSetTable();    
 
-    $("#item-submit-btn").on('click', function(){
+    $("#item-submit-btn").on('click', async function(){
         var name = $("#item-name-input").val();
         var content = $("#item-content-input").val();
         var form = new FormData($("#item-form"));
