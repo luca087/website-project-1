@@ -77,5 +77,20 @@ function Post(id, name, content){
 
   let result =  response;
 
-  alert(result);
+  alert(result.json());
+}
+function PostAjax(){
+  $.ajax({
+    type: "POST",
+    url: "https://luca087.github.io/website-project-1/DataBaseFiles/Items.json",
+    contentType: "application/json",
+    dataType: "json",
+    data: JSON.stringify({
+      "ID":2,
+      "Name": "name 2",
+      "Content": "testing"})
+  })
+    .done(function( data ) {
+      console.log( data );
+    });
 }
