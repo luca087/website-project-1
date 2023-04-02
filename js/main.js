@@ -6,8 +6,11 @@ $(function(){
     $("#item-submit-btn").on('click', function(){
         var name = $("#item-name-input").val();
         var content = $("#item-content-input").val();
+        var form = new FormData($("#item-form"));
 
         console.log("name: ", name, "content: ", content);
+        console.log(form);
+      PostFormFetch(3,"aaa","bbbbbbbb");
         Post(2, name, content);
     }
 )});
@@ -59,6 +62,19 @@ function Post(id, name, content){
     Content:content});
   $.post("../DataBaseFiles/Items.json", tableData)
   .done(function( data ) {
-    alert( "Data Loaded: " + data );
+    window.alert( "Data Loaded: " + data );
   });
 };
+function PostFormFetch(id,name,content){
+  FormData($("#item-form"))
+  let response = await fetch('https://luca087.github.io/website-project-1/DataBaseFiles/Items.json', {
+    method: 'POST',
+    body: {ID:2,
+    Name: "name 2",
+  Content: "testing"}
+  });
+
+  let result = await response.json();
+
+  alert(result.message);
+}
