@@ -7,8 +7,8 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 var tableData = [];
 
-$( function(){
-    GetAndSetTable();    
+$(async function(){
+    await GetAndSetTable();    
     
     $("#item-submit-btn").on('click',  function(){
         var name = $("#item-name-input").val();
@@ -45,7 +45,7 @@ function GetAndSetTableOld(){
     });
 }
 
-function GetAndSetTable(){
+async function GetAndSetTable(){
   
 let { data: Items, error } = await supabase
 .from('Items')
