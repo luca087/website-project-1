@@ -75,7 +75,7 @@ function Post(id, name, content){
   Content: "testing"}
   });
 
-  let result =  response.json();
+  let result =  response;
 
-  alert(result.message);
+  alert(result);
 }
